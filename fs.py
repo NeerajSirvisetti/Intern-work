@@ -16,8 +16,8 @@ from skfeature.function.information_theoretical_based import ICAP
 from skfeature.function.information_theoretical_based import DISR
 from skfeature.function.information_theoretical_based import CMIM
 from sklearn.utils import resample
-import rankaggregation as ra
-agg = ra.RankAggregator()
+# import rankaggregation as ra
+# agg = ra.RankAggregator()
 
 def data(df):
 	df_array = df.values
@@ -58,19 +58,19 @@ def samp(k):
         n.append(str(K.index(str(i))+1))
     return n
 
-def relieF(data):
-	rank=[]
-	for i in range(6):
-		X=data[i][:,:-1]
-		Y=data[i][:,-1]
-		score = reliefF.reliefF(X, Y)
-		idx1 = reliefF.feature_ranking(score)
-		idx = samp(idx1.tolist())
-		rank.append(idx)
-	m = agg.instant_runoff(rank)
-	R = [int(i) for i in m]
+# def relieF(data):
+# 	rank=[]
+# 	for i in range(6):
+# 		X=data[i][:,:-1]
+# 		Y=data[i][:,-1]
+# 		score = reliefF.reliefF(X, Y)
+# 		idx1 = reliefF.feature_ranking(score)
+# 		idx = samp(idx1.tolist())
+# 		rank.append(idx)
+# 	m = agg.instant_runoff(rank)
+# 	R = [int(i) for i in m]
 
-	return R
+# 	return R
 
 
 def fisher(data):
