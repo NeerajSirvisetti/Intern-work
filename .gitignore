@@ -1,0 +1,6 @@
+venv*
+.config*
+.replit*
+replit*
+*.lock
+*.toml
