@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>Feature Selection</title>
+<link rel="stylesheet" href= "{{ url_for('static',filename='styles.css') }}" type="text/css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body >
+	
+<div class="header"><div>
+<div class="topnav">
+ <form action= "{{ url_for('status') }}" method="post">
+  <h2 style="color:#00ffff">Upload dataset in .csv format</h2>
+  <label for="dataset"  style="color:white;font-size: 20px;">Select a file:</label>
+<input type="file" id="myfile" name="dataset" >
+
+
+ 
+</div>
+
+<div class="row">
+  <div class="column side">
+      <div class="box" style="background-image:url('static/tech2.jpg')">
+	  
+    <h4 style="color: #ffff00;font-size:26px">Feature Selection Algorithm</h4>
+	<label for="feature_selection" style="color:#ffff00;font-size:20px">Feature Selection:</label>
+
+ 
+ <select name="feature_status" id="enabling"  type='submit' required>
+  <option value="enable">Enable</option>
+  
+  <option value="disable">Disable</option>
+ </select>
+
+
+ <br>
+ <br>
+ <br>
+ <label for="feature_selectors" style="color:#ffff00;font-size:20px">Feature Selectors:</label>
+ <select name="feature_selectors" id="feature_selector" required>
+  <option value="relieF">relieF</option>
+  <option value="fishers">fishers</option>
+  <option value="mim">mim</option> 
+  <option value="icap">icap</option>
+  <option value="cmim">cmim</option>
+  <option value="jmi">jmi</option>
+  <option value="disr">disr</option>
+  
+  
+  
+  
+ </select>
+ 
+	
+   
+	</div>
+
+	<div class="box" style="background-image:url('static/tech5.jpg')">
+    <h4 Style="font-size:26px;color:#ccff66">Classification Algorithms</h4>
+	<br>
+	
+	<label  Style="font-size:20px;color:#ccff66"for="classifiers">Select Classifier:</label>
+	<select name="classifiers" id="classifiers" required>
+	<option value="Logistic Regression">Logistic Regression</option>
+  
+	<option value="Naive Bayes">Naive Bayes</option>
+		<option value="Random Forest">Random Forest</option>
+	<option value="Svm">Svm</option>
+	</select>
+	
+	</div>
+	
+    
+  </div>
+  
+  
+  
+  
+  <div class="column middle" style="background-image: url(../static/stylesheets/datavisualization2.jpg);">
+    <h2 Style="font-size:26px">Visualization</h2>
+    {% block flash %}
+	{% endblock %}
+    {% block content %}
+    {% endblock  %}
+    
+  </div>
+  <div class="column side">
+    <div class="box" style="background-image:url('static/tech5.jpg')">
+    <h4 Style="font-size:26px;color:#ccff66">Data Panel</h4>
+    
+	<label Style="font-size:20px;color:#ccff66"for="visualization">column1:</label>
+	<select name="columnX" id="column1" required>
+	<option value="column1">column1</option>
+  
+	<option value="column2">column2</option>
+	<option value="column3">column3</option>
+	<option value="column4">column4</option>
+	</select> 
+	<br>
+	<br>
+	<label for="visualization" Style="font-size:20px;color:#ccff66">column2:</label>
+	<select name="columnY" id="column2" required>
+	<option value="column1">column1</option>
+  
+	<option value="column2">column2</option>
+	<option value="column3">column3</option>
+	<option value="column4">column4</option>
+	</select>
+		<br>
+		<br>
+		<br>
+		<label for="scatterplotting" Style="font-size:20px;color:#ccff66">Select Scatterplot:</label>
+		<select name="plotting" id="plotting" required>
+		<option value="histogram">histogram</option>
+  
+		<option value="ROC">ROC curve</option>
+
+		</select>
+		
+	
+	
+	
+	
+	
+	</div>
+	<div class="box" style="background-image:url('static/tech2.jpg')">
+    <h4 style="color:#ffff00;font-size:26px">Resulting panel</h4>
+	<label style="color:#ffff00;font-size:20px">Show ranks to the users:</label>
+	<br>
+	<br>
+	<br>
+	
+	<label for="ranking" style="color:#ffff00;font-size:20px">Select top: </label>
+	<input type="integer" size='10' name="ranks">
+	<label for="ranking"  style="color:#ffff00;font-size:20px"> columns </label>
+	
+	
+	
+	
+	
+	</div>
+    
+  </div>
+    
+  
+  
+  
+  
+  
+</div>
+<input type="submit" size='10' name="submit" value="submit">
+</form>
+<div class="footer">
+<p>status</p>
+</div>
+<script language="JavaScript" type="text/javascript">
+function HandleBrowseClick()
+{
+    var fileinput = document.getElementById("browse");
+    fileinput.click();
+}
+function Handlechange()
+{
+var fileinput = document.getElementById("browse");
+var textinput = document.getElementById("filename");
+textinput.value = fileinput.value;
+}
+
+</script>
+
+
+  
+</body>

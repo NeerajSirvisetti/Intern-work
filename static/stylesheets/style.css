@@ -1,0 +1,147 @@
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+  height:200px;
+}
+.topnav {
+  overflow: hidden;
+  background-color:#ffb3b3;
+  height:100px;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #ccf2ff;
+  
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Links - change color on hover */
+.topnav a:hover {
+  background-color: #ff1a75;
+  color: black;
+}
+.box {
+  background-color: #ffeecc;
+  width: 95%;
+  border: 5px solid white;
+  color:#006080;
+  
+  margin: 5px;
+  height:47%;
+  box-shadow: 5px 5px #ffccdd;
+}
+.column {
+  float: left;
+}
+
+/* Left and right column */
+.column.side {
+
+  width: 25%;
+  background-color:#ffe6f7;
+  height:500px;
+  
+}
+
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+  background-color:#ddff99;
+  height:500px;
+  color:#990073;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+	background-color:#ffe6f7
+  }
+}
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 550px;
+  right: 120px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+  bottom:200px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #33ccff;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #660033;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+.footer {
+  background-color:#cce6ff;
+  text-align: center;
+  padding: 10px;
+}
